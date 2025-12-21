@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Muhammad Fahad</title>
+
+    <style>
+        :root {
+            --bg-color: #0b0f14;
+            --monitor-bg: #0f172a;
+            --accent: #38bdf8;
+            --text-main: #e5e7eb;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== Floating Background ===== */
+        .floating-tech {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .tech {
+            position: absolute;
+            font-size: 1.2rem;
+            color: rgba(56, 189, 248, 0.15);
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+        }
+
+        /* ===== Monitor Container ===== */
+        .monitor {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 4rem auto;
+            background: var(--monitor-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(56,189,248,0.2);
+            padding: 2.5rem;
+            border: 2px solid rgba(56,189,248,0.3);
+        }
+
+        .monitor::before {
+            content: "";
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 14px;
+            background: #1e293b;
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* ===== Download CV Button ===== */
+        .download-cv {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: var(--monitor-bg);
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 3;
+            transition: opacity 0.2s;
+        }
+
+        .download-cv:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== Header ===== */
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .header p {
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* ===== Sections ===== */
+        section {
+            margin-top: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--accent);
+        }
+
+        section h2 a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        section h2 a:hover {
+            opacity: 1;
+        }
+
+        section p, li {
+            margin-top: 0.7rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== Determination Tone ===== */
+        .growth {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 0.6rem;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact {
+            margin-top: 50px;
+            padding: 20px;
+            background: var(--monitor-bg);
+            border-radius: 8px;
+            border: 2px solid rgba(56,189,248,0.3);
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        .contact strong {
+            color: var(--accent);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--accent);
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Tech Background -->
+    <div class="floating-tech" id="floatingTech"></div>
+
+    <!-- Monitor -->
+    <div class="monitor">
+        <!-- Download CV Button -->
+        <a class="download-cv" href="Muhammad_Fahad(CV).pdf" download>📄 Download CV</a>
+
+        <!-- Header / Title -->
+        <div class="header">
+            <h1>Muhammad Fahad</h1>
+            <p>
+                IT Graduate with a strong foundation in software engineering, system support,
+                and automation. Focused on continuous learning, practical problem-solving,
+                and real-world technical growth.
+            </p>
+        </div>
+
+        <!-- About Me -->
+        <section>
+            <h2>
+                About Me
+                <a href="https://github.com/Fahad2512001" target="_blank">💻</a>
+            </h2>
+            <p>
+                I am Muhammad Fahad, a passionate and detail-oriented Information Technology professional with a Bachelor’s degree in Software Engineering. I specialize in IT support, software development, database management, and AI/ML applications, with hands-on experience in building automated tools and platforms that enhance efficiency and decision-making.
+                I have a proven track record in delivering high-quality solutions, from troubleshooting technical issues and validating content to developing dashboards and integrating APIs. My approach combines technical expertise with a strong focus on problem-solving, adaptability, and clear communication.
+                I am committed to continuous learning and leveraging emerging technologies to create practical solutions that drive value for users and organizations alike.
+            </p>
+            <p class="growth">
+                I actively seek feedback, refine my skills, and build solutions step by step.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2>
+                Technical Skills
+                <a href="https://github.com/Fahad2512001" target="_blank">🧠</a>
+            </h2>
+            <ul>
+                <li><strong>Programming & Development:</strong> Python | Java | C++ | C# | SQL | HTML | CSS | JavaScript | Natural Language Processing (NLP) | API Development | Dashboard Creation</li>
+                <li><strong>IT Support & Troubleshooting:</strong> IT Helpdesk Support | System Diagnostics & Troubleshooting | Technical Issue Resolution | User Account Management | Hardware & Software Support</li>
+                <li><strong>Data & Analysis:</strong> Data Analysis & Visualization | Database Design & Query Optimization | Microsoft Excel (Advanced) | Microsoft Access | SQL | Reporting & Insights</li>
+                <li><strong>Administrative & Operations:</strong> Document Preparation & Presentations | Appointment & Schedule Management | Live Event Support | Front Desk Operations | Call Handling | Visitor Coordination | Office Administration</li>
+                <li><strong>Professional & Soft Skills:</strong> Team Collaboration | Effective Communication | Time Management | Fast Learning & Adaptability | Documentation & Reporting | Data Entry Accuracy</li>
+                <li><strong>Languages:</strong> English | Urdu | Arabic | Hindi</li>
+            </ul>
+            <p class="growth">
+                Continuously strengthening both fundamentals and applied skills.
+            </p>
+        </section>
+
+        <!-- Projects & Work -->
+        <section>
+            <h2>
+                Projects & Work
+                <a href="https://github.com/Fahad2512001" target="_blank">📂</a>
+            </h2>
+
+            <ul>
+                <li>
+                    <strong>Personal Budget Management Mobile Application</strong> | Java, Android Studio, Firebase
+                    - <a href="https://github.com/Fahad2512001/Personal-Budget-Application" target="_blank">🔗</a><br>
+                    <em><strong>Project Value:</strong></em> Enhanced financial awareness through intuitive expense tracking and analytics.<br>
+                    <em><strong>Overview:</strong></em> Independently developed a mobile app to track daily, weekly, and monthly spending, providing a clear visual overview.<br>
+                    <em><strong>Key Features:</strong></em> Secure user login, expense categorization, detailed reporting, and visual analytics with graphs/charts.<br>
+                    <em><strong>Outcome:</strong></em> Strengthened skills in Android development, Java, and delivering practical user-focused solutions.
+                </li>
+
+                <li>
+                    <strong>Inventory Management System</strong> | C#, Visual Studio, Microsoft Access
+                    - <a href="https://github.com/Fahad2512001/Inventory_Management_System" target="_blank">🔗</a><br>
+                    <em><strong>Project Value:</strong></em> Streamlined inventory operations and improved accuracy.<br>
+                    <em><strong>Overview:</strong></em> Developed a system for administrators and users to manage inventory and profiles efficiently.<br>
+                    <em><strong>Key Features:</strong></em> Admin dashboard, user account access, stock control, and printable inventory reports.<br>
+                    <em><strong>Outcome:</strong></em> Enhanced skills in UI design, database management, backend logic, and system workflow planning.
+                </li>
+
+                <li>
+                    <strong>Library Management System</strong> | Java, Microsoft Access
+                    - <a href="https://github.com/Fahad2512001/Library_Managent_System" target="_blank">🔗</a><br>
+                    <em><strong>Project Value:</strong></em> Centralized tracking of books, staff, and borrowing activities.<br>
+                    <em><strong>Overview:</strong></em> Designed for academic institutions to manage books, staff, and student borrowing records.<br>
+                    <em><strong>Key Features:</strong></em> Admin/staff management, student borrowing system with fines, automated reporting.<br>
+                    <em><strong>Outcome:</strong></em> Strengthened system design, database handling, and user-friendly interface development.
+                </li>
+
+                <li>
+                    <strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit
+                    - <a href="https://github.com/Fahad2512001/ATS_System" target="_blank">🔗</a><br>
+                    <em><strong>Project Value:</strong></em> Simplified resume screening and improved candidate matching.<br>
+                    <em><strong>Overview:</strong></em> Built a tool to parse CVs, match keywords, and rank applicants automatically.<br>
+                    <em><strong>Key Features:</strong></em> Resume parsing, keyword matching, candidate ranking, and automation.<br>
+                    <em><strong>Outcome:</strong></em> Gained expertise in NLP, automation, and recruitment analytics tools.
+                </li>
+
+                <li>
+                    <strong>Automated Market Sentiment Monitoring & Alert System</strong> | Python, REST APIs, Telegram Bot API, NLP (VADER), Automation
+                    - <a href="https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system" target="_blank">🔗</a><br>
+                    <em><strong>Project Value:</strong></em> Real-time financial news monitoring and impact-based alerts.<br>
+                    <em><strong>Overview:</strong></em> Developed a system to analyze financial news sentiment and deliver alerts via Telegram.<br>
+                    <em><strong>Key Features:</strong></em> Real-time news analysis, automated Telegram alerts, robust error handling for API limits.<br>
+                    <em><strong>Outcome:</strong></em> Demonstrated automation, API integration, NLP sentiment analysis, and real-time data processing skills.
+                </li>
+            </ul>
+
+            <p class="growth">
+                All projects reflect continuous learning, practical problem-solving, and a growth mindset rather than claiming perfection.
+            </p>
+        </section>
+
+        <!-- Learning Section -->
+        <section>
+            <h2>
+                Learning & Growth
+                <a href="https://github.com/Fahad2512001" target="_blank">🚀</a>
+            </h2>
+            <p>
+                I am deeply committed to continuous learning and personal growth, constantly seeking opportunities to expand my technical expertise and problem-solving abilities. I approach challenges with determination, resilience, and a proactive mindset, viewing every obstacle as a chance to improve and innovate. By embracing new technologies, refining my skills, and learning from real-world experiences, I strive to achieve excellence in every project I undertake and move steadily toward my professional goals and long-term aspirations.
+            </p>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="contact">
+            <h2>Contact Information</h2>
+            <p><strong>Phone No.:</strong> +966505951375</p>
+            <p><strong>Current Location:</strong> Dammam, Saudi Arabia</p>
+            <p><strong>Email:</strong> fahad2512001@gmail.com</p>
+        </section>
+
+        <footer>
+            © 2025 Muhammad Fahad-Built with purpose and continuous improvement in mind.
+        </footer>
+    </div>
+
+    <!-- Floating Background Script -->
+    <script>
+        const techWords = [
+            "C++", "Java", "Python", "HTML", "CSS", "JS",
+            "Linux", "API", "SQL", "Cloud", "Git", "AI", "Automation"
+        ];
+
+        const container = document.getElementById("floatingTech");
+
+        for (let i = 0; i < 35; i++) {
+            const span = document.createElement("span");
+            span.classList.add("tech");
+            span.innerText = techWords[Math.floor(Math.random() * techWords.length)];
+
+            span.style.left = Math.random() * 100 + "vw";
+            span.style.animationDuration = (12 + Math.random() * 20) + "s";
+            span.style.animationDelay = Math.random() * 10 + "s";
+
+            container.appendChild(span);
+        }
+    </script>
+
+</body>
+</html>
