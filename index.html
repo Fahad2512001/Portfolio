@@ -29,7 +29,6 @@
             min-height: 100vh;
         }
 
-        /* ===== Floating Background ===== */
         .floating-tech {
             position: fixed;
             top: 0;
@@ -54,7 +53,6 @@
             to { bottom: 110vh; opacity: 1; }
         }
 
-        /* ===== Monitor Container ===== */
         .monitor {
             position: relative;
             z-index: 2;
@@ -79,7 +77,6 @@
             border-radius: 6px 6px 0 0;
         }
 
-        /* ===== Download CV Button ===== */
         .download-cv {
             position: absolute;
             top: 20px;
@@ -96,7 +93,6 @@
 
         .download-cv:hover { opacity: 0.85; }
 
-        /* ===== Header ===== */
         .header h1 {
             font-size: 2.5rem;
             color: var(--accent);
@@ -112,7 +108,6 @@
             text-align: center;
         }
 
-        /* ===== Sections ===== */
         section {
             margin-top: 2.5rem;
             opacity: 0;
@@ -163,7 +158,6 @@
             margin-top: 0.6rem;
         }
 
-        /* ===== Contact Section ===== */
         .contact {
             margin-top: 50px;
             padding: 20px;
@@ -191,12 +185,6 @@
         .contact a {
             color: var(--accent);
             text-decoration: none;
-            transition: color 0.2s ease, text-decoration 0.2s ease;
-        }
-
-        .contact a:hover {
-            color: #22d3ee;
-            text-decoration: underline;
         }
 
         footer {
@@ -205,139 +193,140 @@
             font-size: 0.9rem;
             color: var(--text-muted);
         }
-
-        a { color: var(--accent); }
-        a:hover { text-decoration: underline; }
     </style>
 </head>
 
 <body>
 
-    <!-- Floating Tech Background -->
-    <div class="floating-tech" id="floatingTech"></div>
+<div class="floating-tech" id="floatingTech"></div>
 
-    <!-- Monitor -->
-    <div class="monitor">
-        <a class="download-cv" href="Muhammad_Fahad(CV).pdf" download>📄 Download CV</a>
+<div class="monitor">
+    <a class="download-cv" href="Muhammad_Fahad(CV).pdf" download>📄 Download CV</a>
 
-        <div class="header">
-            <h1>Muhammad Fahad</h1>
-            <p>
-                IT Graduate with a strong foundation in software engineering, system support,
-                and automation. Focused on continuous learning, practical problem-solving,
-                and real-world technical growth.
-            </p>
-        </div>
-
-        <!-- About Me -->
-        <section>
-            <h2>About Me <a href="https://github.com/Fahad2512001" target="_blank">💻</a></h2>
-            <p>
-                I am Muhammad Fahad, a passionate and detail-oriented IT professional with a Bachelor’s in Software Engineering.
-                I specialize in IT support, software development, database management, and AI/ML applications,
-                with hands-on experience in building automated tools that enhance efficiency and decision-making.
-            </p>
-            <p class="growth">I actively seek feedback, refine my skills, and build solutions step by step.</p>
-        </section>
-
-        <!-- Technical Skills -->
-        <section>
-            <h2>Technical Skills <a href="https://github.com/Fahad2512001" target="_blank">🧠</a></h2>
-            <ul>
-                <li><strong>Programming & Development:</strong> Python | Java | C++ | C# | SQL | HTML | CSS | JavaScript | NLP | API Development | Dashboards</li>
-                <li><strong>IT Support & Troubleshooting:</strong> IT Helpdesk | System Diagnostics | Technical Issue Resolution | User Account Management</li>
-                <li><strong>Data & Analysis:</strong> Data Visualization | Database Design | MS Excel (Advanced) | SQL | Reporting</li>
-                <li><strong>Administrative:</strong> Document Prep | Appointment Management | Front Desk | Live Event Support</li>
-                <li><strong>Soft Skills:</strong> Communication | Team Collaboration | Time Management | Adaptability</li>
-                <li><strong>Languages:</strong> English | Urdu | Arabic | Hindi</li>
-            </ul>
-            <p class="growth">Continuously strengthening both fundamentals and applied skills.</p>
-        </section>
-
-        <!-- Projects & Work -->
-        <section>
-            <h2>Projects & Work <a href="https://github.com/Fahad2512001" target="_blank">📂</a></h2>
-            <ul>
-                <li><strong>Personal Budget Management App</strong> | Java, Android Studio, Firebase - <a href="https://github.com/Fahad2512001/Personal-Budget-Application" target="_blank">🔗</a><br>
-                    Project Value: Enhanced financial awareness through intuitive tracking.<br>
-                    Overview: Mobile app to track daily, weekly, and monthly spending.<br>
-                    Outcome: Strengthened skills in Android development and user-focused solutions.
-                </li>
-                <li><strong>Inventory Management System</strong> | C#, Visual Studio - <a href="https://github.com/Fahad2512001/Inventory_Management_System" target="_blank">🔗</a><br>
-                    Project Value: Streamlined inventory operations.<br>
-                    Outcome: Enhanced skills in UI design, database management, backend logic.
-                </li>
-                <li><strong>Library Management System</strong> | Java, MS Access - <a href="https://github.com/Fahad2512001/Library_Managent_System" target="_blank">🔗</a><br>
-                    Project Value: Centralized book and borrowing tracking.<br>
-                    Outcome: Strengthened system design, database handling, and user interface.
-                </li>
-                <li><strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit - <a href="https://github.com/Fahad2512001/ATS_System" target="_blank">🔗</a><br>
-                    Project Value: Simplified resume screening.<br>
-                    Outcome: Gained expertise in NLP, automation, and recruitment analytics.
-                </li>
-                <li><strong>Automated Market Sentiment System</strong> | Python, Telegram Bot API - <a href="https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system" target="_blank">🔗</a><br>
-                    Project Value: Real-time financial news monitoring.<br>
-                    Outcome: Demonstrated automation, API integration, NLP sentiment analysis.
-                </li>
-            </ul>
-            <p class="growth">All projects reflect continuous learning, practical problem-solving, and growth mindset.</p>
-        </section>
-
-        <!-- Learning Section -->
-        <section>
-            <h2>Learning & Growth <a href="https://github.com/Fahad2512001" target="_blank">🚀</a></h2>
-            <p>
-                I am committed to learning and growing continuously. I tackle challenges with determination, adapt quickly to new technologies, and seek every opportunity to enhance my skills and achieve my professional goals.
-            </p>
-        </section>
-
-        <!-- Contact Info -->
-        <section class="contact">
-            <h2>Contact Information</h2>
-            <p><strong>📞 Phone No.:</strong> <a href="tel:+966505951375">+966505951375</a></p>
-            <p><strong>📍 Current Location:</strong> Dammam, Saudi Arabia</p>
-            <p><strong>✉️ Email:</strong> <a href="mailto:fahad2512001@gmail.com">fahad2512001@gmail.com</a></p>
-        </section>
-
-        <footer>
-            © 2025 Muhammad Fahad — Built with purpose and continuous improvement in mind.
-        </footer>
+    <div class="header">
+        <h1>Muhammad Fahad</h1>
+        <p>
+            IT Graduate with a strong foundation in software engineering, system support,
+            and automation. Focused on continuous learning, practical problem-solving,
+            and real-world technical growth.
+        </p>
     </div>
 
-    <!-- Floating Background Script -->
-    <script>
-        const techWords = [
-            "C++", "Java", "Python", "HTML", "CSS", "JS",
-            "Linux", "API", "SQL", "Cloud", "Git", "AI", "Automation"
-        ];
+    <section>
+        <h2>About Me <a href="https://github.com/Fahad2512001" target="_blank">💻</a></h2>
+        <p>
+            I am Muhammad Fahad, a passionate and detail-oriented IT professional with a Bachelor’s in Software Engineering.
+            I specialize in IT support, software development, database management, and AI/ML applications,
+            with hands-on experience in building automated tools that enhance efficiency and decision-making.
+        </p>
+        <p class="growth">I actively seek feedback, refine my skills, and build solutions step by step.</p>
+    </section>
 
-        const container = document.getElementById("floatingTech");
+    <section>
+        <h2>Technical Skills <a href="https://github.com/Fahad2512001" target="_blank">🧠</a></h2>
+        <ul>
+            <li><strong>Programming & Development:</strong> Python | Java | C++ | C# | SQL | HTML | CSS | JavaScript | NLP | API Development | Dashboards</li>
+            <li><strong>IT Support & Troubleshooting:</strong> IT Helpdesk | System Diagnostics | Technical Issue Resolution | User Account Management</li>
+            <li><strong>Data & Analysis:</strong> Data Visualization | Database Design | MS Excel (Advanced) | SQL | Reporting</li>
+            <li><strong>Administrative:</strong> Document Prep | Appointment Management | Front Desk | Live Event Support</li>
+            <li><strong>Soft Skills:</strong> Communication | Team Collaboration | Time Management | Adaptability</li>
+            <li><strong>Languages:</strong> English | Urdu | Arabic | Hindi</li>
+        </ul>
+        <p class="growth">Continuously strengthening both fundamentals and applied skills.</p>
+    </section>
 
-        for (let i = 0; i < 35; i++) {
-            const span = document.createElement("span");
-            span.classList.add("tech");
-            span.innerText = techWords[Math.floor(Math.random() * techWords.length)];
+    <section>
+        <h2>Projects & Work <a href="https://github.com/Fahad2512001" target="_blank">📂</a></h2>
+        <ul>
+            <li><strong>Personal Budget Management App</strong> | Java, Android Studio, Firebase -
+                <a href="https://github.com/Fahad2512001/Personal-Budget-Application" target="_blank">🔗</a><br>
+                Project Value: Enhanced financial awareness through intuitive tracking.<br>
+                Overview: Mobile app to track daily, weekly, and monthly spending.<br>
+                Outcome: Strengthened skills in Android development and user-focused solutions.
+            </li>
 
-            span.style.left = Math.random() * 100 + "vw";
-            span.style.bottom = "-" + (10 + Math.random() * 50) + "px"; // start below screen
-            span.style.animationDuration = (12 + Math.random() * 20) + "s";
-            span.style.animationDelay = Math.random() * 5 + "s";
+            <li><strong>Inventory Management System</strong> | C#, Visual Studio -
+                <a href="https://github.com/Fahad2512001/Inventory_Management_System" target="_blank">🔗</a><br>
+                Project Value: Streamlined inventory operations.<br>
+                Outcome: Enhanced skills in UI design, database management, backend logic.
+            </li>
 
-            container.appendChild(span);
-        }
+            <li><strong>Library Management System</strong> | Java, MS Access -
+                <a href="https://github.com/Fahad2512001/Library_Managent_System" target="_blank">🔗</a><br>
+                Project Value: Centralized book and borrowing tracking.<br>
+                Outcome: Strengthened system design, database handling, and user interface.
+            </li>
 
-        // Scroll animation for sections
-        const sections = document.querySelectorAll("section");
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        }, { threshold: 0.1 });
+            <li><strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit -
+                <a href="https://github.com/Fahad2512001/ATS_System" target="_blank">🔗</a><br>
+                Project Value: Simplified resume screening.<br>
+                Outcome: Gained expertise in NLP, automation, and recruitment analytics.
+            </li>
 
-        sections.forEach(section => observer.observe(section));
-    </script>
+            <li><strong>Automated Market Sentiment System</strong> | Python, Telegram Bot API -
+                <a href="https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system" target="_blank">🔗</a><br>
+                Project Value: Real-time financial news monitoring.<br>
+                Outcome: Demonstrated automation, API integration, NLP sentiment analysis.
+            </li>
+
+            <li><strong>Employee Management System</strong> | Python (Flask), SQLAlchemy, HTML, CSS, Bootstrap, JavaScript<br>
+                Project Value: Centralized employee records and internal operations management.<br>
+                Outcome: Strengthened backend development, database integration, and system workflows.
+            </li>
+
+            <li><strong>Workflow Automation & Approval Engine</strong> | Django, Python, RBAC, State Machine Logic, Django ORM, Authentication<br>
+                Project Value: Automated multi-step approval workflows with role-based controls.<br>
+                Outcome: Demonstrated advanced backend logic, authorization handling, and workflow state management.
+            </li>
+        </ul>
+        <p class="growth">All projects reflect continuous learning, practical problem-solving, and growth mindset.</p>
+    </section>
+
+    <section>
+        <h2>Learning & Growth <a href="https://github.com/Fahad2512001" target="_blank">🚀</a></h2>
+        <p>
+            I am committed to learning and growing continuously. I tackle challenges with determination, adapt quickly to new technologies, and seek every opportunity to enhance my skills and achieve my professional goals.
+        </p>
+    </section>
+
+    <section class="contact">
+        <h2>Contact Information</h2>
+        <p><strong>📞 Phone No.:</strong> <a href="tel:+966505951375">+966505951375</a></p>
+        <p><strong>📍 Current Location:</strong> Dammam, Saudi Arabia</p>
+        <p><strong>✉️ Email:</strong> <a href="mailto:fahad2512001@gmail.com">fahad2512001@gmail.com</a></p>
+    </section>
+
+    <footer>
+        © 2025 Muhammad Fahad — Built with purpose and continuous improvement in mind.
+    </footer>
+</div>
+
+<script>
+    const techWords = ["C++","Java","Python","HTML","CSS","JS","Linux","API","SQL","Cloud","Git","AI","Automation","Django"];
+    const container = document.getElementById("floatingTech");
+
+    for (let i = 0; i < 35; i++) {
+        const span = document.createElement("span");
+        span.classList.add("tech");
+        span.innerText = techWords[Math.floor(Math.random() * techWords.length)];
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.bottom = "-" + (10 + Math.random() * 50) + "px";
+        span.style.animationDuration = (12 + Math.random() * 20) + "s";
+        span.style.animationDelay = Math.random() * 5 + "s";
+        container.appendChild(span);
+    }
+
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
