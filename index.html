@@ -193,6 +193,32 @@
             font-size: 0.9rem;
             color: var(--text-muted);
         }
+
+        /* ===== Project Card Styles ===== */
+        .project-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(56,189,248,0.25);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(56,189,248,0.25);
+            border-color: var(--accent);
+        }
+
+        .project-card strong {
+            color: var(--accent);
+        }
+
+        .project-card p, .project-card br {
+            margin-top: 0.4rem;
+            line-height: 1.5;
+        }
     </style>
 </head>
 
@@ -238,43 +264,45 @@
     <section>
         <h2>Projects & Work <a href="https://github.com/Fahad2512001" target="_blank">📂</a></h2>
         <ul>
-            <li><strong>Personal Budget Management App</strong> | Java, Android Studio, Firebase -
-                <a href="https://github.com/Fahad2512001/Personal-Budget-Application" target="_blank">🔗</a><br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Personal-Budget-Application', '_blank')">
+                <strong>Personal Budget Management App</strong> | Java, Android Studio, Firebase<br>
                 Project Value: Enhanced financial awareness through intuitive tracking.<br>
                 Overview: Mobile app to track daily, weekly, and monthly spending.<br>
                 Outcome: Strengthened skills in Android development and user-focused solutions.
             </li>
 
-            <li><strong>Inventory Management System</strong> | C#, Visual Studio -
-                <a href="https://github.com/Fahad2512001/Inventory_Management_System" target="_blank">🔗</a><br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Inventory_Management_System', '_blank')">
+                <strong>Inventory Management System</strong> | C#, Visual Studio<br>
                 Project Value: Streamlined inventory operations.<br>
                 Outcome: Enhanced skills in UI design, database management, backend logic.
             </li>
 
-            <li><strong>Library Management System</strong> | Java, MS Access -
-                <a href="https://github.com/Fahad2512001/Library_Managent_System" target="_blank">🔗</a><br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Library_Managent_System', '_blank')">
+                <strong>Library Management System</strong> | Java, MS Access<br>
                 Project Value: Centralized book and borrowing tracking.<br>
                 Outcome: Strengthened system design, database handling, and user interface.
             </li>
 
-            <li><strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit -
-                <a href="https://github.com/Fahad2512001/ATS_System" target="_blank">🔗</a><br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/ATS_System', '_blank')">
+                <strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit<br>
                 Project Value: Simplified resume screening.<br>
                 Outcome: Gained expertise in NLP, automation, and recruitment analytics.
             </li>
 
-            <li><strong>Automated Market Sentiment System</strong> | Python, Telegram Bot API -
-                <a href="https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system" target="_blank">🔗</a><br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system', '_blank')">
+                <strong>Automated Market Sentiment System</strong> | Python, Telegram Bot API<br>
                 Project Value: Real-time financial news monitoring.<br>
                 Outcome: Demonstrated automation, API integration, NLP sentiment analysis.
             </li>
 
-            <li><strong>Employee Management System</strong> | Python (Flask), SQLAlchemy, HTML, CSS, Bootstrap, JavaScript<br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001', '_blank')">
+                <strong>Employee Management System</strong> | Python (Flask), SQLAlchemy, HTML, CSS, Bootstrap, JavaScript<br>
                 Project Value: Centralized employee records and internal operations management.<br>
                 Outcome: Strengthened backend development, database integration, and system workflows.
             </li>
 
-            <li><strong>Workflow Automation & Approval Engine</strong> | Django, Python, RBAC, State Machine Logic, Django ORM, Authentication<br>
+            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/', '_blank')">
+                <strong>Workflow Automation & Approval Engine</strong> | Django, Python, RBAC, State Machine Logic, Django ORM, Authentication<br>
                 Project Value: Automated multi-step approval workflows with role-based controls.<br>
                 Outcome: Demonstrated advanced backend logic, authorization handling, and workflow state management.
             </li>
