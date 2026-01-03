@@ -3,369 +3,535 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Muhammad Fahad | IT Portfolio</title>
+    <meta name="description" content="Portfolio of Muhammad Fahad - IT Professional & Software Engineer">
+    <title>Muhammad Fahad | Software Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- CSS Variables --- */
         :root {
-            --bg-color: #0b0f14;
-            --monitor-bg: #0f172a;
-            --accent: #38bdf8;
-            --text-main: #e5e7eb;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-hover: rgba(51, 65, 85, 0.8);
+            
+            --accent-primary: #38bdf8; /* Sky Blue */
+            --accent-secondary: #818cf8; /* Indigo */
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --divider-color: rgba(56,189,248,0.2);
+            
+            --font-main: 'Inter', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+            
+            --border-color: rgba(148, 163, 184, 0.1);
+            --radius-lg: 16px;
+            --radius-sm: 6px;
         }
 
+        /* --- Reset & Base Styles --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
-        .floating-tech {
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+
+        /* --- Background Animation Container --- */
+        .background-anim {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
         }
-
-        .tech {
+        
+        .floating-tag {
             position: absolute;
-            font-size: 1.2rem;
-            color: rgba(56, 189, 248, 0.15);
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            color: var(--accent-primary);
             opacity: 0;
+            white-space: nowrap;
             animation: floatUp linear infinite;
         }
 
         @keyframes floatUp {
-            from { bottom: -50px; opacity: 0; }
-            to { bottom: 110vh; opacity: 1; }
+            0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        .monitor {
+        /* --- Main Layout Container --- */
+        .container {
             position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 4rem auto;
-            background: var(--monitor-bg);
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(56,189,248,0.2);
-            padding: 2.5rem;
-            border: 2px solid rgba(56,189,248,0.3);
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
 
-        .monitor::before {
-            content: "";
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 14px;
-            background: #1e293b;
-            border-radius: 6px 6px 0 0;
-        }
-
-        .download-cv {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--accent);
-            color: var(--monitor-bg);
-            padding: 0.6rem 1rem;
-            border-radius: 6px;
-            font-weight: bold;
-            text-decoration: none;
-            z-index: 3;
-            transition: opacity 0.2s;
-        }
-
-        .download-cv:hover { opacity: 0.85; }
-
-        .header h1 {
-            font-size: 2.5rem;
-            color: var(--accent);
+        /* --- Header / Hero Section --- */
+        header {
             text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
         }
 
-        .header p {
-            margin-top: 0.5rem;
+        .cv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .cv-btn:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-text {
             color: var(--text-muted);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* --- Glass Cards (Common Style) --- */
         section {
-            margin-top: 2.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--divider-color);
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
-        section:last-of-type { border-bottom: none; }
 
         section.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        section h2 {
-            font-size: 1.4rem;
+        .section-title {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            color: var(--accent);
-        }
-
-        section h2 a {
-            text-decoration: none;
-            font-size: 1.1rem;
-            color: var(--accent);
-            opacity: 0.8;
-        }
-
-        section h2 a:hover { opacity: 1; }
-
-        section p, li {
-            margin-top: 0.7rem;
+            gap: 10px;
+            font-size: 1.5rem;
             color: var(--text-main);
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-code);
+        }
+        
+        .section-title span { color: var(--accent-primary); }
+
+        /* --- SKILLS LIST STYLES --- */
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
 
-        ul {
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
+        .skill-row {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.2rem;
+            align-items: baseline;
+        }
+        
+        .skill-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .growth {
-            color: var(--text-muted);
-            font-style: italic;
-            margin-top: 0.6rem;
+        .skill-category {
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-size: 0.95rem;
+            font-family: var(--font-code);
         }
 
-        .contact {
-            margin-top: 50px;
-            padding: 20px;
-            background: var(--monitor-bg);
-            border-radius: 8px;
-            border: 2px solid rgba(56,189,248,0.3);
+        .skill-items {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        .contact p {
-            margin: 10px 0;
+        /* --- Projects Grid --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
-        .contact strong {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--accent);
-            transition: transform 0.2s ease;
-        }
-
-        .contact strong:hover {
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        .contact a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* ===== Project Card Styles ===== */
         .project-card {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(56,189,248,0.25);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent-primary);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(56,189,248,0.25);
-            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        .project-card:hover::before { opacity: 1; }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+        .project-title {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+        .project-tech {
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .icon-link {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s;
+            color: var(--accent-primary);
+        }
+        .project-card:hover .icon-link {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .project-card strong {
-            color: var(--accent);
+        /* --- Contact Section --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+        .contact-value:hover { text-decoration: underline; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            padding-bottom: 2rem;
+            font-family: var(--font-code);
         }
 
-        .project-card p, .project-card br {
-            margin-top: 0.4rem;
-            line-height: 1.5;
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            section { padding: 1.5rem; }
+            .skill-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="floating-tech" id="floatingTech"></div>
+    <div class="background-anim" id="techBackground"></div>
 
-<div class="monitor">
-    <a class="download-cv" href="Muhammad_Fahad(CV).pdf" download>📄 Download CV</a>
+    <div class="container">
+        
+        <header>
+            <a class="cv-btn" href="Muhammad_Fahad(CV).pdf" download>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                Download Resume
+            </a>
+            <h1>Muhammad Fahad</h1>
+            <p class="hero-text">
+                Software Engineer specializing in automation, backend systems, and data-driven solutions. 
+                Transforming complex problems into efficient code.
+            </p>
+        </header>
 
-    <div class="header">
-        <h1>Muhammad Fahad</h1>
-        <p>
-            IT Graduate with a strong foundation in software engineering, system support,
-            and automation. Focused on continuous learning, practical problem-solving,
-            and real-world technical growth.
-        </p>
+        <main>
+            <section id="about">
+                <h2 class="section-title"><span>01.</span> About Me</h2>
+                <p style="color: var(--text-muted);">
+                    I am an IT professional with a Bachelor’s in Software Engineering and a passion for building practical tools. 
+                    From <strong>IT support to full-stack development</strong> and <strong>AI/ML integration</strong>, I focus on creating systems 
+                    that enhance efficiency and decision-making. I actively seek feedback to refine my craft, ensuring every solution 
+                    is better than the last.
+                </p>
+            </section>
+
+            <section id="skills">
+                <h2 class="section-title"><span>02.</span> Technical Skills</h2>
+                
+                <div class="skill-list">
+                    <div class="skill-row">
+                        <div class="skill-category">Programming & Development</div>
+                        <div class="skill-items">Python | Java | C++ | C# | SQL | HTML | CSS | JavaScript | NLP | API Development | Dashboards</div>
+                    </div>
+
+                    <div class="skill-row">
+                        <div class="skill-category">IT Support & Troubleshooting</div>
+                        <div class="skill-items">IT Helpdesk | System Diagnostics | Technical Issue Resolution | User Account Management</div>
+                    </div>
+
+                    <div class="skill-row">
+                        <div class="skill-category">Data & Analysis</div>
+                        <div class="skill-items">Data Visualization | Database Design | MS Excel (Advanced) | SQL | Reporting</div>
+                    </div>
+
+                    <div class="skill-row">
+                        <div class="skill-category">Administrative</div>
+                        <div class="skill-items">Document Prep | Appointment Management | Front Desk | Live Event Support</div>
+                    </div>
+
+                    <div class="skill-row">
+                        <div class="skill-category">Soft Skills</div>
+                        <div class="skill-items">Communication | Team Collaboration | Time Management | Adaptability</div>
+                    </div>
+
+                    <div class="skill-row">
+                        <div class="skill-category">Languages</div>
+                        <div class="skill-items">English | Urdu | Arabic | Hindi</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title"><span>03.</span> Featured Projects</h2>
+                <div class="projects-grid">
+                    
+                    <a href="https://github.com/Fahad2512001/Personal-Budget-Application" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Budget Manager App</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Java • Android Studio • Firebase</div>
+                        <p class="project-desc">Mobile application for tracking daily, weekly, and monthly spending with real-time database syncing.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/Inventory_Management_System" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Inventory System</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">C# • Visual Studio • SQL</div>
+                        <p class="project-desc">Desktop application to streamline inventory operations, enhancing database logic and UI design skills.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/Library_Managent_System" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Library Management</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Java • MS Access</div>
+                        <p class="project-desc">Centralized book and borrowing tracking system designed to streamline library operations.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/ATS_System" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Smart ATS</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Python • NLP • Streamlit</div>
+                        <p class="project-desc">Automated Applicant Tracking System using Natural Language Processing to screen and score resumes.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Market Sentiment Bot</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Python • Telegram API • NLP</div>
+                        <p class="project-desc">Real-time financial news monitoring system that alerts users based on sentiment analysis.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Employee Portal</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Flask • SQLAlchemy • JS</div>
+                        <p class="project-desc">Centralized record management system with secure internal workflows and reporting.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Workflow Engine</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">Django • RBAC • Python</div>
+                        <p class="project-desc">Automated multi-step approval workflows with role-based access controls and state management.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/ProjectManagementAPI" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Project Mgmt API</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">FastAPI • SQLite • Auth</div>
+                        <p class="project-desc">Structured API with task tracking, user authentication, and full CRUD operations.</p>
+                    </a>
+
+                    <a href="https://github.com/Fahad2512001/data-anonymization-service" target="_blank" class="project-card">
+                        <div class="project-header">
+                            <span class="project-title">Data Anonymizer API</span>
+                            <span class="icon-link">↗</span>
+                        </div>
+                        <div class="project-tech">FastAPI • PII Detection • Pytest</div>
+                        <p class="project-desc">Modular API service that detects and masks sensitive personal data (PII) to ensure privacy compliance.</p>
+                    </a>
+
+                </div>
+            </section>
+
+            <section id="learning">
+                <h2 class="section-title"><span>04.</span> Growth Mindset</h2>
+                <p style="color: var(--text-muted); font-style: italic; border-left: 3px solid var(--accent-secondary); padding-left: 1rem;">
+                    <strong>I tackle challenges with determination, adapt quickly to new technologies, and seek every opportunity to enhance my skills.</strong>
+                </p>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title"><span>05.</span> Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+966505951375" class="contact-value">+966 50 595 1375</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:fahad2512001@gmail.com" class="contact-value">fahad2512001@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Location</span>
+                        <span class="contact-value" style="color: var(--text-main); cursor: default;">Dammam, Saudi Arabia</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Muhammad Fahad. Built with code & purpose.</p>
+            <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 5px;">View Source on <a href="https://github.com/Fahad2512001" style="text-decoration: underline;">GitHub</a></p>
+        </footer>
     </div>
 
-    <section>
-        <h2>About Me <a href="https://github.com/Fahad2512001" target="_blank">💻</a></h2>
-        <p>
-            I am Muhammad Fahad, a passionate and detail-oriented IT professional with a Bachelor’s in Software Engineering.
-            I specialize in IT support, software development, database management, and AI/ML applications,
-            with hands-on experience in building automated tools that enhance efficiency and decision-making.
-        </p>
-        <p class="growth">I actively seek feedback, refine my skills, and build solutions step by step.</p>
-    </section>
+    <script>
+        // Floating Tech Animation
+        const techStack = ["Python", "Java", "C++", "Docker", "AWS", "SQL", "FastAPI", "React", "Git", "Linux", "AI/ML", "Django"];
+        const bgContainer = document.getElementById("techBackground");
 
-    <section>
-        <h2>Technical Skills <a href="https://github.com/Fahad2512001" target="_blank">🧠</a></h2>
-        <ul>
-            <li><strong>Programming & Development:</strong> Python | Java | C++ | C# | SQL | HTML | CSS | JavaScript | NLP | API Development | Dashboards</li>
-            <li><strong>IT Support & Troubleshooting:</strong> IT Helpdesk | System Diagnostics | Technical Issue Resolution | User Account Management</li>
-            <li><strong>Data & Analysis:</strong> Data Visualization | Database Design | MS Excel (Advanced) | SQL | Reporting</li>
-            <li><strong>Administrative:</strong> Document Prep | Appointment Management | Front Desk | Live Event Support</li>
-            <li><strong>Soft Skills:</strong> Communication | Team Collaboration | Time Management | Adaptability</li>
-            <li><strong>Languages:</strong> English | Urdu | Arabic | Hindi</li>
-        </ul>
-        <p class="growth">Continuously strengthening both fundamentals and applied skills.</p>
-    </section>
+        function createTechParticle() {
+            const span = document.createElement("span");
+            span.classList.add("floating-tag");
+            span.innerText = techStack[Math.floor(Math.random() * techStack.length)];
+            span.style.left = Math.random() * 95 + "vw";
+            const duration = 15 + Math.random() * 20; 
+            span.style.animationDuration = duration + "s";
+            const size = 0.8 + Math.random() * 0.5;
+            span.style.fontSize = size + "rem";
+            bgContainer.appendChild(span);
+            setTimeout(() => { span.remove(); }, duration * 1000);
+        }
+        for(let i=0; i<15; i++) setTimeout(createTechParticle, i * 800);
+        setInterval(createTechParticle, 2000);
 
-    <section>
-        <h2>Projects & Work <a href="https://github.com/Fahad2512001" target="_blank">📂</a></h2>
-        <ul>
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Personal-Budget-Application', '_blank')">
-                <strong>Personal Budget Management App</strong> | Java, Android Studio, Firebase<br>
-                <strong>Project Value:</strong> Enhanced financial awareness through intuitive tracking.<br>
-                <strong>Overview:</strong> Mobile app to track daily, weekly, and monthly spending.<br>
-                <strong>Outcome:</strong> Strengthened skills in Android development and user-focused solutions.
-            </li>
+        // Scroll Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Inventory_Management_System', '_blank')">
-                <strong>Inventory Management System</strong> | C#, Visual Studio<br>
-                <strong>Project Value:</strong> Streamlined inventory operations.<br>
-                <strong>Outcome:</strong> Enhanced skills in UI design, database management, backend logic.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/Library_Managent_System', '_blank')">
-                <strong>Library Management System</strong> | Java, MS Access<br>
-                <strong>Project Value:</strong> Centralized book and borrowing tracking.<br>
-                <strong>Outcome:</strong> Strengthened system design, database handling, and user interface.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/ATS_System', '_blank')">
-                <strong>Applicant Tracking System (ATS)</strong> | Python, NLP, Streamlit<br>
-                <strong>Project Value:</strong> Simplified resume screening.<br>
-                <strong>Outcome:</strong> Gained expertise in NLP, automation, and recruitment analytics.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/automated-market-sentiment-monitoring-and-alert-system', '_blank')">
-                <strong>Automated Market Sentiment System</strong> | Python, Telegram Bot API<br>
-                <strong>Project Value:</strong> Real-time financial news monitoring.<br>
-                <strong>Outcome:</strong> Demonstrated automation, API integration, NLP sentiment analysis.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001', '_blank')">
-                <strong>Employee Management System</strong> | Python (Flask), SQLAlchemy, HTML, CSS, Bootstrap, JavaScript<br>
-                <strong>Project Value:</strong> Centralized employee records and internal operations management.<br>
-                <strong>Outcome:</strong> Strengthened backend development, database integration, and system workflows.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/', '_blank')">
-                <strong>Workflow Automation & Approval Engine</strong> | Django, Python, RBAC, State Machine Logic, Django ORM, Authentication<br>
-                <strong>Project Value:</strong> Automated multi-step approval workflows with role-based controls.<br>
-                <strong>Outcome:</strong> Demonstrated advanced backend logic, authorization handling, and workflow state management.
-            </li>
-
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/ProjectManagementAPI', '_blank')">
-    <strong>Project Management API</strong> | Python (FastAPI), SQLAlchemy, SQLite, Jinja2 Templates, Authentication, CRUD Operations<br>
-    <strong>Project Value:</strong> Provides structured project management features, task tracking, and secure user authentication.<br>
-    <strong>Outcome:</strong> Developed full-stack API with database integration, authentication, and workflow automation, demonstrating backend and API development skills.
-            </li>
-            <li class="project-card" onclick="window.open('https://github.com/Fahad2512001/data-anonymization-service', '_blank')">
-    <strong>Data Anonymization Service</strong> | Python, FastAPI, pytest, PII Detection, Masking, Audit Logging<br>
-    <strong>Project Value:</strong> Detects and anonymizes sensitive personal information (PII) in structured and unstructured data, ensuring privacy and compliance.<br>
-    <strong>Outcome:</strong> Developed modular rule-based pipelines and API endpoints, enhancing backend development, automated testing, and privacy-preserving data handling.
-        </li>
-        </ul>
-        <p class="growth">All projects reflect continuous learning, practical problem-solving, and growth mindset.</p>
-    </section>
-
-    <section>
-        <h2>Learning & Growth <a href="https://github.com/Fahad2512001" target="_blank">🚀</a></h2>
-        <p>
-            I am committed to learning and growing continuously. I tackle challenges with determination, adapt quickly to new technologies, and seek every opportunity to enhance my skills and achieve my professional goals.
-        </p>
-    </section>
-
-    <section class="contact">
-        <h2>Contact Information</h2>
-        <p><strong>📞 Phone No.:</strong> <a href="tel:+966505951375">+966505951375</a></p>
-        <p><strong>📍 Current Location:</strong> Dammam, Saudi Arabia</p>
-        <p><strong>✉️ Email:</strong> <a href="mailto:fahad2512001@gmail.com">fahad2512001@gmail.com</a></p>
-    </section>
-
-    <footer>
-        © 2026 Muhammad Fahad — Built with purpose and continuous improvement in mind.
-    </footer>
-</div>
-
-<script>
-    const techWords = ["C++","Java","Python","HTML","CSS","JS","Linux","API","SQL","Cloud","Git","AI","Automation","Django"];
-    const container = document.getElementById("floatingTech");
-
-    for (let i = 0; i < 35; i++) {
-        const span = document.createElement("span");
-        span.classList.add("tech");
-        span.innerText = techWords[Math.floor(Math.random() * techWords.length)];
-        span.style.left = Math.random() * 100 + "vw";
-        span.style.bottom = "-" + (10 + Math.random() * 50) + "px";
-        span.style.animationDuration = (12 + Math.random() * 20) + "s";
-        span.style.animationDelay = Math.random() * 5 + "s";
-        container.appendChild(span);
-    }
-
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => observer.observe(section));
-</script>
-
+        document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+    </script>
 </body>
 </html>
